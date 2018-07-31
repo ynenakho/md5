@@ -13,8 +13,8 @@
 NAME = ft_ssl
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -g
-SRC = main.c
-OBJ = main.o 
+SRC = main.c get_opt.c hashing.c ft_ssl_md5.c global_vars.c
+OBJ = main.o get_opt.o hashing.o ft_ssl_md5.o global_vars.o
 
 DEPS = ft_ssl_md5.h
 LIBS = ./libft/libft.a

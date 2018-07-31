@@ -19,7 +19,7 @@ static void	error(char x, char *name)
 	ft_putstr_fd(name, 2);
 	write(2, ": illegal option -- ", 20);
 	ft_putchar_fd(x, 2);
-	write(2, "\nusage: ft_ssl md5 [-pqrtx] [-s string] [files ...]\n", 31);
+	write(2, "\nusage: ft_ssl md5 [-pqrt] [-s string] [files ...]\n", 31);
 	exit(1);
 }
 

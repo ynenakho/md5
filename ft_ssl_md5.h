@@ -28,14 +28,41 @@ typedef struct s_flags
 typedef struct s_main
 {
   int orig_len;
-  int cur_len;
+  int len;
+  char *orig_msg;
   uint8_t *msg;
   t_flags flags;
   bool  multargs;
 }              t_main;
 
 extern int g_optint;
+extern int g_s[64];
+extern int g_k[64];
 
+
+
+struct s_item {
+  char           *key;
+  t_funcs   func;
+  struct s_item  *next;
+};
+
+typedef struct s_dict {
+  struct s_item **items;
+  int           capacity;
+}             t_dict;
+
+
+// DICTIONNARY
+
+size_t hash(char *input); //return hash result
+t_dict *dictInit(int capacity); //initialize the dictionnary, given as parameter the capacity of the array.
+int	dictInsert(t_dict *dict, char *key, t_funcs   func); //add one element in the dictionnary, if FAIL return 0, otherwise 1
+t_funcs   dictSearch(t_dict *dict, char *key); //find one element in the dictionnary, if not found, return NULL
+
+// main
+
+void ft_ssl_md5(int argc, char **argv);
 int			ft_getopt(char **argv, char *optstr);
 
 #endif
